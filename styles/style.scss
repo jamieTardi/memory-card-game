@@ -37,8 +37,21 @@ html{
 }
 
 .main-card-container{
-    @include flex-center();
+    @include flex-column();
+    gap: 2rem;
     min-height: 70vh;
+}
+
+.start-game{
+    padding: 0.5rem 1rem;
+    background: #29bf12;
+    color: white;
+    border-radius: 1rem;
+    cursor: pointer;
+    &:hover{
+        background: #abff4f;
+        color: black
+    }
 }
 
 .card,

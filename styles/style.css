@@ -29,13 +29,31 @@ html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: 2rem;
   min-height: 70vh;
+}
+
+.start-game {
+  padding: 0.5rem 1rem;
+  background: #29bf12;
+  color: white;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.start-game:hover {
+  background: #abff4f;
+  color: black;
 }
 
 .card,
