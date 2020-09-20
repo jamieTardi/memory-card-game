@@ -9,26 +9,26 @@ const startBtn = document.querySelector('.start-game')
 const countDown = document.querySelector('.countdown')
 
 
-revealAnswer = () => {
-    card1.innerHTML = 'answer'
-}
 
 startGame = () => {
+    //start countdown timer
     setTimeout(() => {
         countDown.innerHTML = '5'
-    },1000);
+    }, 1000);
     setTimeout(() => {
         countDown.innerHTML = '4'
-    },2000)
+    }, 2000)
     setTimeout(() => {
         countDown.innerHTML = '3'
-    },3000)
+    }, 3000)
     setTimeout(() => {
         countDown.innerHTML = '2'
-    },4000)
+    }, 4000)
     setTimeout(() => {
         countDown.innerHTML = 'GO!'
-    },5000)
+    }, 5000)
+
+
 
     allCards.forEach(card => {
         setTimeout(() => {
@@ -36,7 +36,7 @@ startGame = () => {
             let text = document.createTextNode('Time to guess!')
             card.appendChild(para)
             para.appendChild(text)
-    
+
         }, 5000)
     })
 }
@@ -47,7 +47,6 @@ startGame = () => {
 
 
 startBtn.addEventListener('click', startGame)
-card1.addEventListener('click', revealAnswer)
 
 
 
@@ -56,28 +55,46 @@ card1.addEventListener('click', revealAnswer)
 
 
 
-// let cardReveal = [{answers: [{
-// answer1: 'Tree',
-// correctAnswer: true
-// },
-// {
-// answer1: 'Stone',
-// correctAnswer: false
-// },
-// {
-//     answer1: 'Tree',
-//     correctAnswer: true
-//     },
-//     {
-//         answer1: 'Wall',
-//         correctAnswer: false
-//         },
-//         {
-//             answer1: 'TV',
-//             correctAnswer: false
-//             },
-//             {
-//                 answer1: 'house',
-//                 correctAnswer: false
-//                 },
-// ]}]
+let cardReveal = {
+    answers: [{
+            answer1: '<img src="../images/leaves.jpg">',
+            correctAnswer: true
+        },
+        {
+            answer2: 'Stone',
+            correctAnswer: false
+        },
+        {
+            answer3: 'Tree',
+            correctAnswer: true
+        },
+        {
+            answer4: 'Wall',
+            correctAnswer: false
+        },
+        {
+            answer5: 'TV',
+            correctAnswer: false
+        },
+        {
+            answer6: 'house',
+            correctAnswer: false
+        },
+    ]
+}
+revealAnswer = () => {
+    let answer1 = cardReveal.answers[0].answer1
+            let div = document.createElement('div')
+            let text = document.createTextNode('Is this right?')
+            div.classList.add('answer-cards')
+            card1.appendChild(div)
+            div.innerHTML = answer1
+            
+            
+}
+revealAnswer()
+
+console.log(cardReveal)
+console.log(cardReveal.answers[0].answer1)
+
+// card1.addEventListener('click', revealAnswer)

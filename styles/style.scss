@@ -62,8 +62,8 @@ html{
     min-width: 120px;
     background: $background;
     @include flex-column();
+    gap: 1rem;
     box-shadow: 10px 10px 5px 0px rgba(46,74,117,1);
-    perspective: 1000px;
     cursor: pointer;
 
 }
@@ -80,6 +80,16 @@ html{
     background-position: center;
     background-size: cover;
     
+}
+
+.answer-cards{
+    
+    
+    img{
+        width: 100px;
+        height: 100px;
+        border-radius: 1rem;
+    }
 }
 
 //card flip animation
