@@ -9,6 +9,8 @@ const startBtn = document.querySelector('.start-game')
 const countDown = document.querySelector('.countdown')
 
 
+let randomAnswers = Math.floor(Math.random() * 6)
+console.log(randomAnswers)
 
 startGame = () => {
     //start countdown timer
@@ -28,8 +30,6 @@ startGame = () => {
         countDown.innerHTML = 'GO!'
     }, 5000)
 
-
-
     allCards.forEach(card => {
         setTimeout(() => {
             let para = document.createElement('p')
@@ -40,58 +40,49 @@ startGame = () => {
         }, 5000)
     })
 }
-
-
-
-
-
-
 startBtn.addEventListener('click', startGame)
-
-
-
-
-
-
-
-
 let cardReveal = {
-    answers: [{
-            answer1: '<img src="../images/leaves.jpg">',
-            correctAnswer: true
-        },
-        {
-            answer2: 'Stone',
-            correctAnswer: false
-        },
-        {
-            answer3: 'Tree',
-            correctAnswer: true
-        },
-        {
-            answer4: 'Wall',
-            correctAnswer: false
-        },
-        {
-            answer5: 'TV',
-            correctAnswer: false
-        },
-        {
-            answer6: 'house',
-            correctAnswer: false
-        },
-    ]
-}
-revealAnswer = () => {
-    let answer1 = cardReveal.answers[0].answer1
-            let div = document.createElement('div')
-            let text = document.createTextNode('Is this right?')
-            div.classList.add('answer-cards')
-            card1.appendChild(div)
-            div.innerHTML = answer1
-            
-            
-}
+        answers: [{
+                answer: '<img src="../images/leaves.jpg">',
+                correctAnswer: true
+            },
+            {
+                answer: 'Stone',
+                correctAnswer: false
+            },
+            {
+                answer: 'Tree',
+                correctAnswer: true
+            },
+            {
+                answer: 'Wall',
+                correctAnswer: false
+            },
+            {
+                answer: 'TV',
+                correctAnswer: false
+            },
+            {
+                answer: 'house',
+                correctAnswer: false
+            },
+        ]
+
+
+    },
+
+    revealAnswer = () => {
+        let answer = cardReveal.answers[randomAnswers].answer
+        let div = document.createElement('div')
+        div.classList.add('answer-cards')
+        card1.appendChild(div)
+        div.innerHTML = answer
+        let answer2 = cardReveal.answers[randomAnswers].answer
+        let div2 = document.createElement('div')
+        div.classList.add('answer-cards')
+        card2.appendChild(div)
+        div2.innerHTML = answer2
+    }
 revealAnswer()
 
 console.log(cardReveal)
