@@ -8,6 +8,7 @@ const allCards = document.querySelectorAll('.card')
 const startBtn = document.querySelector('.start-game')
 const countDown = document.querySelector('.countdown')
 const innerImg = document.querySelector('.card-inner-image')
+const score = document.querySelector('.score-span')
 
 randomAnswersFunc = () => {
 let randomAnswers = Math.floor(Math.random() * 6)
@@ -32,17 +33,15 @@ startGame = () => {
     }, 4000)
     setTimeout(() => {
         countDown.innerHTML = 'GO!'
-        revealAnswer()
     }, 5000)
 
+    //Random image for the start card
     innerImg.innerHTML = cardReveal.answers[randomAnswersFunc()].answer
-
-
-
+     
+    //Logic for the 6 cards
     allCards.forEach(card => {
         card.innerHTML = ''
-        setTimeout(() => {
-            let para = document.createElement('p')
+        let para = document.createElement('p')
             let text = document.createTextNode('Time to guess!')
             card.appendChild(para)
             para.appendChild(text)
@@ -51,7 +50,12 @@ startGame = () => {
         div.classList.add('answer-cards')
         card.appendChild(div)
         div.innerHTML = answer
-
+        setTimeout(() => {
+            div.style.opacity = '0'
+            div.addEventListener('click', () => {
+                console.log('working')
+                div.style.opacity = '1'
+            })
         }, 5000)
     })
 }
@@ -84,29 +88,6 @@ let cardReveal = {
         ]
 
 
-    },
-
-    revealAnswer = () => {
-        // let answer = cardReveal.answers[randomAnswers].answer
-        // let div = document.createElement('div')
-        // div.classList.add('answer-cards')
-        // card1.appendChild(div)
-        // div.innerHTML = answer
-        //answer2
-        // let answer2 = cardReveal.answers[randomAnswers2].answer
-        // let div2 = document.createElement('div')
-        // div2.classList.add('answer-cards')
-        // card2.appendChild(div2)
-        // div2.innerHTML = answer2
-        
-        
     }
-
-
-
-    
-
-
-
 
 startBtn.addEventListener('click', startGame)

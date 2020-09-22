@@ -56,6 +56,16 @@ html {
   color: black;
 }
 
+.countdown {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
+.score {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
 .card,
 .flip-card {
   border: none;
@@ -131,6 +141,12 @@ html {
   border-radius: 1rem;
 }
 
+.flip-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 1rem;
+}
+
 .flip-card-inner {
   position: relative;
   width: 100%;
@@ -159,8 +175,10 @@ html {
 }
 
 .flip-card-front {
-  background-color: #eeeeee;
-  color: black;
+  background-color: #8d99ae;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -54,6 +54,16 @@ html{
     }
 }
 
+.countdown{
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+.score {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
 .card,
 .flip-card {
     border: none;
@@ -98,7 +108,11 @@ html{
     height: 120px;
     perspective: 1000px; 
     border-radius: 1rem;
-    
+    img{
+        width: 100px;
+        height: 100px;
+        border-radius: 1rem;
+    }
   }
   
   
@@ -129,8 +143,10 @@ html{
   
   
   .flip-card-front {
-    background-color: $background;
-    color: black;
+    background-color: #8d99ae;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
     @include flex-center()
   }
   
