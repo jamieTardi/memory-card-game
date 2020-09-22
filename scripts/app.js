@@ -7,11 +7,13 @@ const card6 = document.querySelector('.memory-card6')
 const allCards = document.querySelectorAll('.card')
 const startBtn = document.querySelector('.start-game')
 const countDown = document.querySelector('.countdown')
+const innerImg = document.querySelector('.card-inner-image')
 
 randomAnswersFunc = () => {
 let randomAnswers = Math.floor(Math.random() * 6)
 return randomAnswers
 }
+
 
 
 startGame = () => {
@@ -33,7 +35,12 @@ startGame = () => {
         revealAnswer()
     }, 5000)
 
+    innerImg.innerHTML = cardReveal.answers[randomAnswersFunc()].answer
+
+
+
     allCards.forEach(card => {
+        card.innerHTML = ''
         setTimeout(() => {
             let para = document.createElement('p')
             let text = document.createTextNode('Time to guess!')
@@ -55,23 +62,23 @@ let cardReveal = {
                 correctAnswer: true
             },
             {
-                answer: 'Stone',
+                answer: '<img src="../images/house.jpg">',
                 correctAnswer: false
             },
             {
-                answer: 'Tree',
+                answer: '<img src="../images/wall.jpg">',
                 correctAnswer: true
             },
             {
-                answer: 'Wall',
+                answer: '<img src="../images/tree.jpg">',
                 correctAnswer: false
             },
             {
-                answer: 'TV',
+                answer: '<img src="../images/stone.jpg">',
                 correctAnswer: false
             },
             {
-                answer: 'house',
+                answer: '<img src="../images/tv.jpg">',
                 correctAnswer: false
             },
         ]

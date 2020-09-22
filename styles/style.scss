@@ -74,12 +74,11 @@ html{
 }
 
 .card-inner-image{
+    @include flex-column();
+    img{
     height: 50%;
     width: 90%;
-    background: url(../images/leaves.jpg);
-    background-position: center;
-    background-size: cover;
-    
+    }
 }
 
 .answer-cards{
