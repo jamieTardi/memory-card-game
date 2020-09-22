@@ -8,9 +8,11 @@ const allCards = document.querySelectorAll('.card')
 const startBtn = document.querySelector('.start-game')
 const countDown = document.querySelector('.countdown')
 
-
+randomAnswersFunc = () => {
 let randomAnswers = Math.floor(Math.random() * 6)
-console.log(randomAnswers)
+return randomAnswers
+}
+
 
 startGame = () => {
     //start countdown timer
@@ -28,6 +30,7 @@ startGame = () => {
     }, 4000)
     setTimeout(() => {
         countDown.innerHTML = 'GO!'
+        revealAnswer()
     }, 5000)
 
     allCards.forEach(card => {
@@ -36,11 +39,16 @@ startGame = () => {
             let text = document.createTextNode('Time to guess!')
             card.appendChild(para)
             para.appendChild(text)
+            let answer = cardReveal.answers[randomAnswersFunc()].answer
+        let div = document.createElement('div')
+        div.classList.add('answer-cards')
+        card.appendChild(div)
+        div.innerHTML = answer
 
         }, 5000)
     })
 }
-startBtn.addEventListener('click', startGame)
+
 let cardReveal = {
         answers: [{
                 answer: '<img src="../images/leaves.jpg">',
@@ -72,20 +80,26 @@ let cardReveal = {
     },
 
     revealAnswer = () => {
-        let answer = cardReveal.answers[randomAnswers].answer
-        let div = document.createElement('div')
-        div.classList.add('answer-cards')
-        card1.appendChild(div)
-        div.innerHTML = answer
-        let answer2 = cardReveal.answers[randomAnswers].answer
-        let div2 = document.createElement('div')
-        div.classList.add('answer-cards')
-        card2.appendChild(div)
-        div2.innerHTML = answer2
+        // let answer = cardReveal.answers[randomAnswers].answer
+        // let div = document.createElement('div')
+        // div.classList.add('answer-cards')
+        // card1.appendChild(div)
+        // div.innerHTML = answer
+        //answer2
+        // let answer2 = cardReveal.answers[randomAnswers2].answer
+        // let div2 = document.createElement('div')
+        // div2.classList.add('answer-cards')
+        // card2.appendChild(div2)
+        // div2.innerHTML = answer2
+        
+        
     }
-revealAnswer()
 
-console.log(cardReveal)
-console.log(cardReveal.answers[0].answer1)
 
-// card1.addEventListener('click', revealAnswer)
+
+    
+
+
+
+
+startBtn.addEventListener('click', startGame)
