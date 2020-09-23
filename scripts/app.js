@@ -54,7 +54,29 @@ startGame = () => {
             div.style.opacity = '0'
             div.addEventListener('click', () => {
                 console.log('working')
-                div.style.opacity = '1'
+                
+                if (div.innerHTML === '<img src="../images/leaves.jpg">' && innerImg.innerHTML === '<img src="../images/leaves.jpg">'){
+                    alert ('correct')
+                    div.style.opacity = '1'
+                }
+                else if (div.innerHTML === '<img src="../images/house.jpg">' && innerImg.innerHTML === '<img src="../images/house.jpg">'){
+                    alert ('correct')
+                    div.style.opacity = '1'
+                }
+                else if (div.innerHTML === '<img src="../images/stone.jpg">'&& innerImg.innerHTML === '<img src="../images/stone.jpg">'){
+                    alert ('correct')
+                    div.style.opacity = '1'
+                }
+                else if (div.innerHTML === '<img src="../images/tv.jpg">' && innerImg.innerHTML === '<img src="../images/tv.jpg">'){
+                    alert ('correct')
+                    div.style.opacity = '1'
+                }
+                else if (div.innerHTML === '<img src="../images/wall.jpg">' && innerImg.innerHTML === '<img src="../images/wall.jpg">'){
+                    alert ('correct')
+                    div.style.opacity = '1'
+                }
+                else {alert ('incorrect!')}
+
             })
         }, 5000)
     })
