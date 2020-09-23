@@ -8,13 +8,23 @@ const allCards = document.querySelectorAll('.card')
 const startBtn = document.querySelector('.start-game')
 const countDown = document.querySelector('.countdown')
 const innerImg = document.querySelector('.card-inner-image')
-const score = document.querySelector('.score-span')
+const points = document.querySelector('.score-span')
+let score = 0
+
 
 randomAnswersFunc = () => {
 let randomAnswers = Math.floor(Math.random() * 6)
 return randomAnswers
 }
 
+//updates the score and added a win condition
+updateScore = () => {
+    score++
+    points.innerHTML = score
+    if (score === 5){
+        console.log('winner!')
+    }
+}
 
 
 startGame = () => {
@@ -35,6 +45,7 @@ startGame = () => {
         countDown.innerHTML = 'GO!'
     }, 5000)
 
+
     //Random image for the start card
     innerImg.innerHTML = cardReveal.answers[randomAnswersFunc()].answer
      
@@ -54,27 +65,45 @@ startGame = () => {
             div.style.opacity = '0'
             div.addEventListener('click', () => {
                 console.log('working')
-                
                 if (div.innerHTML === '<img src="../images/leaves.jpg">' && innerImg.innerHTML === '<img src="../images/leaves.jpg">'){
                     alert ('correct')
                     div.style.opacity = '1'
+                    updateScore()
+                    
                 }
                 else if (div.innerHTML === '<img src="../images/house.jpg">' && innerImg.innerHTML === '<img src="../images/house.jpg">'){
                     alert ('correct')
                     div.style.opacity = '1'
+                    updateScore()
+                    
                 }
                 else if (div.innerHTML === '<img src="../images/stone.jpg">'&& innerImg.innerHTML === '<img src="../images/stone.jpg">'){
                     alert ('correct')
                     div.style.opacity = '1'
+                    updateScore()
+                    
                 }
                 else if (div.innerHTML === '<img src="../images/tv.jpg">' && innerImg.innerHTML === '<img src="../images/tv.jpg">'){
                     alert ('correct')
                     div.style.opacity = '1'
+                    updateScore()
+                    
                 }
                 else if (div.innerHTML === '<img src="../images/wall.jpg">' && innerImg.innerHTML === '<img src="../images/wall.jpg">'){
                     alert ('correct')
                     div.style.opacity = '1'
+                    updateScore()
+                    
                 }
+
+                else if (div.innerHTML === '<img src="../images/tree.jpg">' && innerImg.innerHTML === '<img src="../images/tree.jpg">'){
+                    alert ('correct')
+                    div.style.opacity = '1'
+                    updateScore()
+                    
+                }
+
+                
                 else {alert ('incorrect!')}
 
             })
@@ -85,27 +114,21 @@ startGame = () => {
 let cardReveal = {
         answers: [{
                 answer: '<img src="../images/leaves.jpg">',
-                correctAnswer: true
             },
             {
                 answer: '<img src="../images/house.jpg">',
-                correctAnswer: false
             },
             {
                 answer: '<img src="../images/wall.jpg">',
-                correctAnswer: true
             },
             {
                 answer: '<img src="../images/tree.jpg">',
-                correctAnswer: false
             },
             {
                 answer: '<img src="../images/stone.jpg">',
-                correctAnswer: false
             },
             {
                 answer: '<img src="../images/tv.jpg">',
-                correctAnswer: false
             },
         ]
 
@@ -113,3 +136,4 @@ let cardReveal = {
     }
 
 startBtn.addEventListener('click', startGame)
+
